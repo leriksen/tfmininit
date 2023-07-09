@@ -6,11 +6,13 @@ set -euo pipefail
 # SA name
 # container name
 # key (blob) name
-# use_azuread_auth == true
 # addSpnToEnvironment == true in AzureCLI@2 devops task
-# tenant id , obtained from addSpnToEnvironment
-# client id , obtained from addSpnToEnvironment
-# client key , obtained from addSpnToEnvironment
+# plus the following as envvars
+# (as envvars they dont get added to state file)
+# ARM_USE_AZUREAD: true
+# ARM_TENANT_ID    , obtained from addSpnToEnvironment
+# ARM_CLIENT_ID    , obtained from addSpnToEnvironment
+# ARM_CLIENT_SECRET, obtained from addSpnToEnvironment
 
 export ARM_TENANT_ID="${tenantId}"
 export ARM_CLIENT_ID="${servicePrincipalId}"
